@@ -18,12 +18,12 @@ const App = () => {
   }, [])
 
   return (
-    <div>
-      <p>Hello World</p>
+    <div >
+      <p>Hello World !!!</p>
       {!!pokemon.length &&
         pokemon.map((el, i) => {
           return (
-            <div key={i}>
+            <div class="item" key={i}>
               <h1>{el.name}</h1>
             </div>
           )
