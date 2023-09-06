@@ -1,14 +1,32 @@
 import "./App.css";
 import Products from "./components/Products";
-import { Typography } from "@mui/material";
-("@mui/material");
+import {
+  Typography,
+  AppBar,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  CssBaseline,
+  Grid,
+  Toolbar,
+  Container,
+} from "@mui/material";
 
 function App() {
   return (
     <>
-      <h1>Products</h1>
-      {/* <Login /> */}
-      <Products />
+      <CssBaseline />
+      <AppBar position="relative">
+        <Toolbar>
+          <Typography variant="h1">List Of Products</Typography>
+        </Toolbar>
+      </AppBar>
+      <main>
+        {/* <Login /> */}
+        <Products />
+      </main>
     </>
   );
 }
