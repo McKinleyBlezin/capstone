@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { Card } from "@mui/material";
 export default function Products() {
   const [products, setProducts] = useState([]);
 
@@ -21,14 +21,17 @@ export default function Products() {
   console.log(products);
   return (
     <>
-      <p>Products</p>
       {products.map((product) => (
-        <ul>
-          <ul>{product.title}</ul>
-
-          <ul>{product.price}</ul>
-          <ul> Customer Rating's {product.rating.rate} out of 5 stars</ul>
-          <img src={product.image} alt="" width="100" />
+        <ul className="card">
+          <ul>
+            {product.title}
+            <br />${product.price}
+            <br />
+            Customer Rating's {product.rating.rate} out of 5 stars
+          </ul>
+          <ul>
+            <img src={product.image} alt="" width="100" />
+          </ul>
           {/* <ul>{product.description}</ul> */}
         </ul>
       ))}
