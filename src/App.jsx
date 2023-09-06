@@ -1,5 +1,7 @@
 import "./App.css";
 import Products from "./components/Products";
+import { Typography } from "@mui/material";
+("@mui/material");
 
 function App() {
   return (
