@@ -32,7 +32,7 @@ export default function Products() {
           <ul>
             <img src={product.image} alt="" width="100" />
           </ul>
-          {/* <ul>{product.description}</ul> */}
+          <ul>{product.description}</ul>
         </ul>
       ))}
     </>
