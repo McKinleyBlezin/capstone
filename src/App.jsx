@@ -1,4 +1,6 @@
+import { Routes, Route } from "react-router-dom";
 import Products from "./components/Products";
+import ToolBar from "./components/Navbar";
 import {
   Typography,
   AppBar,
@@ -14,16 +16,22 @@ import {
 } from "@mui/material";
 
 function App() {
+  const [token, setToken] = useState("here");
+
   return (
     <>
-      <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <Typography variant="h1">List Of Products</Typography>
-        </Toolbar>
-      </AppBar>
       <main>
-        {/* <Login /> */}
+        <CssBaseline />
+        <AppBar position="relative">
+          <Routes>
+            <Toolbar>
+              <Typography variant="h1">List Of Products</Typography>
+              <Route path="/" element={""} />
+              <Route path="/Login" element={<Login />} />
+            </Toolbar>
+          </Routes>
+        </AppBar>
+        <Login token={token} />
         <Products />
       </main>
     </>
