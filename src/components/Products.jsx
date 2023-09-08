@@ -31,8 +31,8 @@ export default function Products() {
           </ul>
           <ul>
             <img src={product.image} alt="" width="100" />
+            Product Description: {product.description}
           </ul>
-          <ul>{product.description}</ul>
         </ul>
       ))}
     </>

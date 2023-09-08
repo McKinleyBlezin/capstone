@@ -22,14 +22,16 @@ function App() {
     <>
       <AppBar position="relative">
         <Toolbar>
-          <Typography variant="h1">List Of Products</Typography>
+          <Typography variant="h1">#1 Stop & Shop</Typography>
         </Toolbar>
       </AppBar>
-      <Routes>
-        <Route path="/" element={""} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Products" element={<Products />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={""} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/Products" element={<Products />} />
+        </Routes>
+      </main>
     </>
   );
 }
