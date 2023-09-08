@@ -28,9 +28,10 @@ export function Login() {
     // Call the login function when the component mounts
     login();
   }, []);
+
   return (
     <>
-      <form>
+      <form className="login">
         <label>
           Username:
           <input
@@ -49,10 +50,10 @@ export function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
+        <button className="login-button" type="button" onClick={Login}>
+          Login
+        </button>
       </form>
-      <button className="Login" type="button" onClick={Login}>
-        Login
-      </button>
     </>
   );
 }
