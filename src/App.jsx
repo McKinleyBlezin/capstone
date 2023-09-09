@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Products from "./components/Products";
-import ToolBar from "./components/Navbar";
 import { Login } from "./components/Login";
+import Signup from "./components/Signup";
+import ToolBar from "./components/Navbar";
 import "./index.css";
 import {
   Typography,
@@ -30,6 +31,7 @@ function App() {
           <Route path="/" element={""} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Products" element={<Products />} />
+          <Route path="/Signup" element={<Signup />} />
         </Routes>
       </main>
     </>
