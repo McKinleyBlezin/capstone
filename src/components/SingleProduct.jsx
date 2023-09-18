@@ -18,7 +18,7 @@ export default function SingleProduct() {
     }
 
     //calling the products to show
-    fetchSingleProdct();
+    fetchSingleProduct();
     console.log(fetchSingleProduct);
   }, []);
 

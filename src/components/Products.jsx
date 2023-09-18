@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "@mui/material";
+
 export default function Products() {
   const [products, setProducts] = useState([]);
 
@@ -31,8 +32,8 @@ export default function Products() {
           </ul>
           <ul>
             <img src={product.image} alt="" width="100" />
+            Product Description: {product.description}
           </ul>
-          <ul>{product.description}</ul>
         </ul>
       ))}
     </>
