@@ -1,4 +1,5 @@
 import Products from "./components/Products";
+import SingleProduct from "./components/SingleProduct";
 import {
   Typography,
   AppBar,
