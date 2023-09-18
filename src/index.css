@@ -42,7 +42,32 @@ main{
   grid-template-columns: repeat(2, 1fr);
  }
  
+.nav{
+  background-color: rgb(209, 103, 103);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  font-size: larger;
+}
 
+.nav ul{
+  padding:0%;
+  margin: 0%;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav li:hover {
+  background-color: rgb(167, 178, 208);
+}
 /* body {
   margin: 0;
   padding: 0;

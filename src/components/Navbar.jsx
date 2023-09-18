@@ -1,14 +1,21 @@
 import { Link } from "react-router-dom";
 
-export default function Toolbar() {
+export default function Navbar() {
   return (
-    <nav className="Toolbar">
+    <nav className="nav">
+      <Link hrefLang="/" className="toolbar">
+        #➊ 🅢🅣🅞🅟 & 🅢🅗🅞🅟
+      </Link>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <a href="/Login">Login</a>
         </li>
         <li>
-          <Link to="/Login">Login</Link>
+          <a href="/Products">Products</a>
+        </li>
+
+        <li>
+          <a href="/Signup">SignUp</a>
         </li>
       </ul>
     </nav>

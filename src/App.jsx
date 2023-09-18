@@ -3,7 +3,7 @@ import Products from "./components/Products";
 import SingleProduct from "./components/SingleProduct";
 import { Login } from "./components/Login";
 import Signup from "./components/Signup";
-import ToolBar from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import "./index.css";
 import {
   Typography,
@@ -22,9 +22,10 @@ import {
 function App() {
   return (
     <>
+      <Navbar />
       <AppBar position="relative">
         <Toolbar>
-          <Typography variant="h1">#1 Stop & Shop</Typography>
+          <Typography variant="h1">#➊ 🅢🅣🅞🅟 & 🅢🅗🅞🅟</Typography>
         </Toolbar>
       </AppBar>
       <main>
