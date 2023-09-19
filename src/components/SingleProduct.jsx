@@ -3,23 +3,22 @@ import { Card } from "@mui/material";
 import { useParams } from "react-router-dom";
 
 export default function SingleProduct() {
-  const [singleProduct, setSingleProduct] = useState();
+  const [singleProduct, setSingleProduct] = useState("");
   const { id } = useParams();
 
   useEffect(() => {
     async function fetchSingleProduct() {
       try {
-        const response = await fetch("https://fakestoreapi.com/products");
-        const result = await response.json();
-        setProducts(result);
+        const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+        const product = await response.json();
+
+        setSingleProduct(product); // This should call a single product ... do I need to add an ID in that?
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
-
-    //calling the products to show
+    // Calling the fetchSingleProduct function
     fetchSingleProduct();
-    console.log(fetchSingleProduct);
   }, []);
 
   return (
