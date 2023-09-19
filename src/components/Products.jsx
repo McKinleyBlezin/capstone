@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "@mui/material";
+import SingleProduct from "./SingleProduct";
 export default function Products() {
   const [products, setProducts] = useState([]);
 
@@ -30,8 +31,17 @@ export default function Products() {
             <br />
             Customer Rating's {product.rating.rate} out of 5 stars
             <br />
-            <button>View Product</button>
-            <button>Add To Cart</button>
+            <button /*
+              className="view-product"
+              type="button"
+              onClick={SingleProduct}
+            */
+            >
+              View Product
+            </button>
+            <button /*className="add-to-cart" type="button" onClick={Cart}*/>
+              Add To Cart
+            </button>
           </ul>
           <ul>
             <img src={product.image} alt="" width="100" />
