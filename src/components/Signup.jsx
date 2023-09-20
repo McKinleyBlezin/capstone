@@ -38,20 +38,25 @@ export default function Signup() {
     }
     signup();
   }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       <h2>
         Welcome to 1 Stop & Shop! Down below once you signup you'll have
         exclusive access to our online products!▼▼▼
       </h2>
-      <form /*onSubmit={this.handleSubmit} */>
-        <label htmlFor="email">Email:</label>
-        <input type="text" id="email" name="email" />
-        <br />
+      <form className="signup" onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
         <input type="text" id="username" name="username" />
         <label htmlFor="password">Password:</label>
         <input type="text" id="password" name="password" />
+        <br />
+        <label htmlFor="email">Email:</label>
+        <input type="text" id="email" name="email" />
         <br />
         <label htmlFor="streetAddress">Street Address:</label>
         <input type="text" id="streetAddress" name="streetAddress" required />

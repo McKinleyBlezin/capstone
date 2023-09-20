@@ -22,15 +22,19 @@ main{
   padding-left: 0%;
   width: 10%;
   height: 30px;
-  
-/* NOT SURE how to center  login button
-
-  display: grid;
-  place-items: center;
-  justify-content: center;
-  align-items:  center;
-*/
 }
+
+.signup{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.submit{
+
+}
+
 .card >ul{
   text-align: center;
   padding: 0;
@@ -71,17 +75,3 @@ main{
 .nav li:hover {
   background-color: rgb(167, 178, 208);
 }
-/* body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100vw;
-  color: rgb(12, 14, 14);
-  background-color: rgb(88, 88, 211);
-}
-/* .item { 
-  border: 1px solid rgb(16, 11, 11);
-  margin: 2%;
-  padding: 10%;
-  align-items: center;
-}   */
