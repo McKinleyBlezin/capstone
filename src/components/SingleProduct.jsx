@@ -3,7 +3,7 @@ import { Card } from "@mui/material";
 import { useParams } from "react-router-dom";
 
 export default function SingleProduct() {
-  const [singleProduct, setSingleProduct] = useState("");
+  const [singleProduct, setSingleProduct] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
@@ -19,12 +19,12 @@ export default function SingleProduct() {
     }
     // Calling the fetchSingleProduct function
     fetchSingleProduct();
-  }, []);
+  }, [id]);
 
   return (
     <>
       {singleProduct.map((product) => (
-        <ul className="card">
+        <ul className="singlecard">
           <ul>
             {product.title}
             <br />${product.price}

@@ -16,10 +16,10 @@ export default function Products() {
       }
     }
 
-    //calling the products to show
+    //Calling the products to show
     fetchProducts();
   }, []);
-  console.log(products);
+
   return (
     <>
       {products.map((product) => (
@@ -29,7 +29,7 @@ export default function Products() {
             {product.title}
             <p>${product.price}</p>
             <br />
-            Customer Rating's {product.rating.rate} out of 5 stars
+            Customer Rating's {product.rating.rate} out of 5 star
             <br />
             <button /*
               className="view-product"
