@@ -12,31 +12,36 @@ export default function SingleProduct() {
         const response = await fetch(`https://fakestoreapi.com/products/${id}`);
         const product = await response.json();
 
-        setSingleProduct(product); // This should call a single product ... do I need to add an ID in that?
+        //Calling for all Single Product
+        setSingleProduct(product);
+
+        fetch("https://fakestoreapi.com/products/1")
+          .then((res) => res.json())
+          .then((json) => console.log(json));
       } catch (error) {
         console.error(error);
       }
     }
-    // Calling the fetchSingleProduct function
+    // Calling the fetchSingleProduct function for each product ID
     fetchSingleProduct();
   }, [id]);
 
   return (
     <>
-      {singleProduct.map((product) => (
-        <ul className="singlecard">
-          <ul>
-            {product.title}
-            <br />${product.price}
+      {singleProduct && (
+        <div className="singlecard">
+          <div>
+            {singleProduct.title}
+            <br />${singleProduct.price}
             <br />
-            Customer Rating's {product.rating.rate} out of 5 stars
-          </ul>
-          <ul>
-            <img src={product.image} alt="" width="100" />
-            Product Description: {product.description}
-          </ul>
-        </ul>
-      ))}
+            Customer Rating: {singleProduct.rating.rate} out of 5 stars
+          </div>
+          <div>
+            <img src={singleProduct.image} alt="" width="100" />
+            Product Description: {singleProduct.description}
+          </div>
+        </div>
+      )}
     </>
   );
 }
