@@ -22,7 +22,7 @@ import { useState } from "react";
 
 function App() {
   const [token, setToken] = useState("here");
-
+  //do I need create a path /products/{id} in the routes?
   return (
     <>
       <Navbar />
