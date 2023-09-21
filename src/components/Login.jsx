@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export function Login() {
+export function Login({ token }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,6 +18,11 @@ export function Login() {
             "Content-Type": "application/json",
           },
         });
+        //If login is correct provide a token
+        //Where would a localStorage take place????
+        if (token) {
+          response.headers["Authorization"] = `Bearer ${token}`;
+        }
         const result = await response.json();
         // Log the result of data from JSON
       } catch (error) {
@@ -25,7 +30,6 @@ export function Login() {
       }
     }
 
-    // Call the login function when the component mounts
     login();
   }, []);
 
@@ -33,20 +37,20 @@ export function Login() {
     <>
       <form className="login">
         <label>
-          Username:
           <input
             type="text"
             name="username"
             value={username}
+            placeholder="Username"
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
         <label>
-          Password:
           <input
-            type="password" // Use type="password" for password input
+            type="password"
             name="password"
             value={password}
+            placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>

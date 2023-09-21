@@ -18,8 +18,11 @@ import {
   Toolbar,
   Container,
 } from "@mui/material";
+import { useState } from "react";
 
 function App() {
+  const [token, setToken] = useState("here");
+
   return (
     <>
       <Navbar />
@@ -31,10 +34,10 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={""} />
-          <Route path="/Login" element={<Login />} />
+          <Route path="/Login" element={<Login />} token={token} />
           <Route path="/Products" element={<Products />} />
           <Route path="/SingleProduct" element={<SingleProduct />} />
-          <Route path="/Signup" element={<Signup />} />
+          <Route path="/Signup" element={<Signup />} token={token} />
         </Routes>
       </main>
     </>

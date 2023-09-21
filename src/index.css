@@ -1,7 +1,11 @@
 main{
   display: grid;
-    background-color: rgb(167, 178, 208);
+    /* background-color: rgb(167, 178, 208); */
+    background-image: url(https://c.wallhere.com/photos/e4/45/5516x3677_px_bowknot_christmas_gifts_holidays_New_Year_ribbon_Snowflakes-805077.jpg!d);
+    background-size: cover;
+    background-position: center;
     padding: 1%;
+   
 /* THIS measurement would be good for SingleProduct component CSS
     padding: 20%;
  */
@@ -22,18 +26,22 @@ main{
   padding-left: 0%;
   width: 10%;
   height: 30px;
+  font-weight: bold;
+  font-size: 17px;
+  color: rgb(38, 36, 36);
+
 }
 
 .signup{
+  background-color: rgb(167, 178, 208);
+  padding: 10px;
+  margin: 90px;
   display: grid;
   align-items: center;
   justify-content: center;
 
 }
 
-.submit{
-
-}
 
 .card >ul{
   text-align: center;
