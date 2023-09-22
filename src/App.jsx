@@ -22,7 +22,7 @@ import { useState } from "react";
 
 function App() {
   const [token, setToken] = useState("here");
-  //do I need create a path /products/{id} in the routes?
+
   return (
     <>
       <Navbar />
@@ -36,7 +36,7 @@ function App() {
           <Route path="/" element={""} />
           <Route path="/Login" element={<Login />} token={token} />
           <Route path="/Products" element={<Products />} />
-          <Route path="/SingleProduct" element={<SingleProduct />} />
+          <Route path="/Products/:id" element={<SingleProduct />} />
           <Route path="/Signup" element={<Signup />} token={token} />
         </Routes>
       </main>

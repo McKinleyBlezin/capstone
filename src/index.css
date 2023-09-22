@@ -1,14 +1,20 @@
 main{
   display: grid;
-    /* background-color: rgb(167, 178, 208); */
-    background-image: url(https://c.wallhere.com/photos/e4/45/5516x3677_px_bowknot_christmas_gifts_holidays_New_Year_ribbon_Snowflakes-805077.jpg!d);
-    background-size: cover;
+    background-image: url(https://images.pexels.com/photos/2096622/pexels-photo-2096622.jpeg?cs=srgb&dl=pexels-tim-mossholder-2096622.jpg&fm=jpg);
+    /* background-repeat: repeat;
+  background-size: 30%; */
+  background-size: cover;
     background-position: center;
-    padding: 1%;
-   
-/* THIS measurement would be good for SingleProduct component CSS
-    padding: 20%;
- */
+    padding: 10%;
+  
+}
+
+.singlecard{
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding: 20%;
+  margin-left: 17%;
 }
 
 .login{

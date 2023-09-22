@@ -11,13 +11,9 @@ export default function SingleProduct() {
       try {
         const response = await fetch(`https://fakestoreapi.com/products/${id}`);
         const product = await response.json();
-
+        console.log(product);
         //Calling for all Single Product
         setSingleProduct(product);
-
-        fetch("https://fakestoreapi.com/products/1")
-          .then((res) => res.json())
-          .then((json) => console.log(json));
       } catch (error) {
         console.error(error);
       }
@@ -40,6 +36,7 @@ export default function SingleProduct() {
             <img src={singleProduct.image} alt="" width="100" />
             Product Description: {singleProduct.description}
           </div>
+          <button>Add To Cart</button>
         </div>
       )}
     </>
