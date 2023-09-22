@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "@mui/material";
-import SingleProduct from "./SingleProduct";
 import { useNavigate } from "react-router-dom";
+
 export default function Products() {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
