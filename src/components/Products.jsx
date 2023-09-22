@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
-
+  const navigate = useNavigate();
   //Have a use Effect to gab all data for products from API
   useEffect(() => {
     async function fetchProducts() {
@@ -16,23 +17,37 @@ export default function Products() {
       }
     }
 
-    //calling the products to show
+    //Calling the products to show
     fetchProducts();
   }, []);
-  console.log(products);
+
   return (
     <>
       {products.map((product) => (
         <ul className="card">
           <ul>
+            {" "}
             {product.title}
-            <br />${product.price}
+            <p>${product.price}</p>
             <br />
-            Customer Rating's {product.rating.rate} out of 5 stars
+            Customer Rating's {product.rating.rate} out of 5 star
+            <br />
+            <button
+              className="view-product"
+              type="button"
+              onClick={() => {
+                navigate(`/Products/${product.id}`);
+              }}
+            >
+              View Product
+            </button>
+            <button /*className="add-to-cart" type="button" onClick={Cart}*/>
+              Add To Cart
+            </button>
           </ul>
           <ul>
             <img src={product.image} alt="" width="100" />
-            Product Description: {product.description}
+            <p>{product.description}</p>
           </ul>
         </ul>
       ))}

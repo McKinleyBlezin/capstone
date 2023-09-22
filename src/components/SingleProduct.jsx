@@ -3,41 +3,42 @@ import { Card } from "@mui/material";
 import { useParams } from "react-router-dom";
 
 export default function SingleProduct() {
-  const [singleProduct, setSingleProduct] = useState();
+  const [singleProduct, setSingleProduct] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
     async function fetchSingleProduct() {
       try {
-        const response = await fetch("https://fakestoreapi.com/products");
-        const result = await response.json();
-        setProducts(result);
+        const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+        const product = await response.json();
+        console.log(product);
+        //Calling for all Single Product
+        setSingleProduct(product);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
-
-    //calling the products to show
+    // Calling the fetchSingleProduct function for each product ID
     fetchSingleProduct();
-    console.log(fetchSingleProduct);
-  }, []);
+  }, [id]);
 
   return (
     <>
-      {singleProduct.map((product) => (
-        <ul className="card">
-          <ul>
-            {product.title}
-            <br />${product.price}
+      {singleProduct && (
+        <div className="singlecard">
+          <div>
+            {singleProduct.title}
+            <br />${singleProduct.price}
             <br />
-            Customer Rating's {product.rating.rate} out of 5 stars
-          </ul>
-          <ul>
-            <img src={product.image} alt="" width="100" />
-            Product Description: {product.description}
-          </ul>
-        </ul>
-      ))}
+            Customer Rating: {singleProduct.rating.rate} out of 5 stars
+          </div>
+          <div>
+            <img src={singleProduct.image} alt="" width="100" />
+            Product Description: {singleProduct.description}
+          </div>
+          <button>Add To Cart</button>
+        </div>
+      )}
     </>
   );
 }

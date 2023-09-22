@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "@mui/material";
 
-export default function Signup() {
+export default function Signup(token) {
   const [signup, setSignup] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -38,20 +38,35 @@ export default function Signup() {
     }
     signup();
   }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       <h2>
-        Welcome to 1 Stop & Shop! Down below once you signup you'll have
-        exclusive access to our online products!▼▼▼
+        ▼▼Welcome to 1 Stop & Shop! Down below once you SIGNUP you'll have
+        exclusive access to our online products!▼▼
       </h2>
-      <form /*onSubmit={this.handleSubmit} */>
+      <form className="signup" onSubmit={handleSubmit}>
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Username"
+        />
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Must Contain A #"
+        />
+        <br />
         <label htmlFor="email">Email:</label>
         <input type="text" id="email" name="email" />
-        <br />
-        <label htmlFor="username">Username:</label>
-        <input type="text" id="username" name="username" />
-        <label htmlFor="password">Password:</label>
-        <input type="text" id="password" name="password" />
         <br />
         <label htmlFor="streetAddress">Street Address:</label>
         <input type="text" id="streetAddress" name="streetAddress" required />
@@ -62,17 +77,30 @@ export default function Signup() {
         <br />
 
         <label htmlFor="state">State:</label>
-        <input type="text" id="state" name="state" required />
+        <input
+          type="text"
+          id="state"
+          name="state"
+          placeholder="2 Letters"
+          required
+        />
         <br />
 
         <label htmlFor="zipCode">Zip Code:</label>
         <input type="number" id="zipCode" name="zipCode" required />
         <br />
         <label htmlFor="phoneNumber">Phone Number:</label>
-        <input type="number" id="phoneNumber" name="phoneNumber" />
+        <input
+          type="number"
+          id="phoneNumber"
+          name="phoneNumber"
+          placeholder="(555) 555-5555"
+        />
         <br />
       </form>
-      <button type="submit">Submit</button>
+      <button onClick={token} type="submit">
+        Submit
+      </button>
     </>
   );
 }
