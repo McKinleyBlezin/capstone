@@ -8,14 +8,19 @@ export default function Navbar() {
       </Link>
       <ul>
         <li>
-          <a href="/Login">Login</a>
-        </li>
-        <li>
-          <a href="/Products">Products</a>
+          <a href="/Signup">SignUp |</a>
         </li>
 
         <li>
-          <a href="/Signup">SignUp</a>
+          <a href="/Login">Login |</a>
+        </li>
+
+        <li>
+          <a href="/Products">Products |</a>
+        </li>
+
+        <li>
+          <a href="/Checkout">Checkout |</a>
         </li>
       </ul>
     </nav>
