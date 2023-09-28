@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-export default function Products() {
+export default function Products({ updateCart }) {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
   //Have a use Effect to gab all data for products from API
@@ -21,10 +21,16 @@ export default function Products() {
     fetchProducts();
   }, []);
 
+  function addToCart(id) {
+    const item = products.find((product) => product.id === id);
+
+    updateCart((prevCart) => [...prevCart, item]);
+  }
+
   return (
     <>
       {products.map((product) => (
-        <ul className="card">
+        <ul className="card" key={product.id}>
           <ul>
             {" "}
             {product.title}
@@ -41,7 +47,11 @@ export default function Products() {
             >
               View Product
             </button>
-            <button /*className="add-to-cart" type="button" onClick={Cart}*/>
+            <button
+              className="add-to-cart"
+              type="button"
+              onClick={() => addToCart(product.id)}
+            >
               Add To Cart
             </button>
           </ul>

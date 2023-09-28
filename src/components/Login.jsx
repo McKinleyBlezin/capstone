@@ -1,37 +1,45 @@
 import React, { useEffect, useState } from "react";
 
-export function Login({ token }) {
+export function Login({ token, setToken }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    async function login() {
-      try {
-        //Fetching data from API link
-        const response = await fetch("https://fakestoreapi.com/auth/login", {
-          method: "POST",
-          body: JSON.stringify({
-            username: "mor_2314",
-            password: "83r5^_",
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        //If login is correct provide a token
-        //Where would a localStorage take place????
-        if (token) {
-          response.headers["Authorization"] = `Bearer ${token}`;
-        }
-        const result = await response.json();
-        // Log the result of data from JSON
-      } catch (error) {
-        console.log(error);
-      }
-    }
+    const storeToken = localStorage.getItem("token");
 
-    login();
-  }, []);
+    if (!token && storeToken) {
+      setToken(storeToken);
+    }
+  }, [token, setToken]);
+
+  async function loginAPI() {
+    try {
+      //Fetching data from API link
+      const response = await fetch("https://fakestoreapi.com/auth/login", {
+        method: "POST",
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const result = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem("token", result.token);
+        setToken(result.token);
+
+        console.log(response);
+      } else {
+        // Handle login errors here
+        console.log("Login failed:", result.error);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <>
@@ -54,7 +62,7 @@ export function Login({ token }) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <button className="login-button" type="button" onClick={Login}>
+        <button className="login-button" type="button" onClick={loginAPI}>
           Login
         </button>
       </form>
