@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-export default function Products({ cart, updateCart }) {
+export default function Products({ updateCart }) {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
   //Have a use Effect to gab all data for products from API

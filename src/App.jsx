@@ -36,19 +36,19 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={""} />
-          <Route path="/Login" element={<Login />} token={token} />
-          <Route path="/Products" element={<Products />} updateCart={setCart} />
+          <Route
+            path="/Login"
+            element={<Login token={token} setToken={setToken} />}
+          />
+          <Route path="/Products" element={<Products updateCart={setCart} />} />
           <Route
             path="/Products/:id"
-            element={<SingleProduct />}
-            setCart={setCart}
+            element={<SingleProduct updateCart={setCart} />}
           />
-          <Route path="/Signup" element={<Signup />} token={token} />
+          <Route path="/Signup" element={<Signup token={token} />} />
           <Route
             path="/Checkout"
-            element={<Checkout />}
-            cart={cart}
-            updateCart={setCart}
+            element={<Checkout cart={cart} updateCart={setCart} />}
           />
         </Routes>
       </main>
