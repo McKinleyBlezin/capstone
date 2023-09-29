@@ -66,7 +66,12 @@ export default function Signup(token) {
         />
         <br />
         <label htmlFor="email">Email:</label>
-        <input type="text" id="email" name="email" />
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="example@example.com"
+        />
         <br />
         <label htmlFor="streetAddress">Street Address:</label>
         <input type="text" id="streetAddress" name="streetAddress" required />
