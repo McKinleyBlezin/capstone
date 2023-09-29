@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "@mui/material";
 
-export default function Signup(token) {
+export default function Signup() {
   const [signup, setSignup] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
