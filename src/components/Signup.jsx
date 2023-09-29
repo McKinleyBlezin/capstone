@@ -103,9 +103,7 @@ export default function Signup(token) {
         />
         <br />
       </form>
-      <button onClick={token} type="submit">
-        Submit
-      </button>
+      <button type="submit">Submit</button>
     </>
   );
 }
