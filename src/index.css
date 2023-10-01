@@ -36,6 +36,25 @@ main{
 
 }
 
+.checkout-card1{
+  text-align: center;
+  padding: 15px;
+  border: 2px solid silver;
+  font-size: medium;
+  background-color: rgba(167, 208, 207, 0.632);
+  border-radius: 5%;
+
+}
+.checkout-card2{
+  text-align: center;
+  padding: 15px;
+  border: 2px solid silver;
+  font-size: medium;
+  background-color: rgba(167, 208, 207, 0.632);
+  border-radius: 5%;
+
+}
+
 .signup{
   background-color: rgba(167, 208, 207, 0.632);
   padding: 10px;
