@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Products from "./components/Products";
 import SingleProduct from "./components/SingleProduct";
@@ -23,8 +23,23 @@ import {
 
 function App() {
   const [token, setToken] = useState("here");
+  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const response = await fetch("https://fakestoreapi.com/products");
+        const result = await response.json();
+        setProducts(result);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    //Calling the products to show
+    fetchProducts();
+  }, []);
   return (
     <>
       <Navbar cart={cart} />
@@ -40,7 +55,17 @@ function App() {
             path="/Login"
             element={<Login token={token} setToken={setToken} />}
           />
-          <Route path="/Products" element={<Products updateCart={setCart} />} />
+          <Route
+            path="/Products"
+            element={
+              <Products
+                cart={cart}
+                updateCart={setCart}
+                products={products}
+                setProducts={setProducts}
+              />
+            }
+          />
           <Route
             path="/Products/:id"
             element={<SingleProduct updateCart={setCart} />}
@@ -48,7 +73,9 @@ function App() {
           <Route path="/Signup" element={<Signup token={token} />} />
           <Route
             path="/Checkout"
-            element={<Checkout cart={cart} updateCart={setCart} />}
+            element={
+              <Checkout cart={cart} updateCart={setCart} products={products} />
+            }
           />
         </Routes>
       </main>

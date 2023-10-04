@@ -5,16 +5,44 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-export default function Checkout({ cart, setCart }) {
+export default function Checkout({ cart, updateCart, products }) {
   useEffect(() => {
-    const cart = async () => {
+    const apiCart = async () => {
       const response = await fetch("https://fakestoreapi.com/carts");
       const result = await response.json();
-      setCart(result);
+      console.log(result[1]);
+      const newCart = result[1].products;
+      // const detailedCart = cart.map((item) => {
+
+      // })
+      const detailedCart = products.filter((product) => {
+        for (let i = 0; i < newCart.length; i++) {
+          if (product.id === newCart[i].productId) {
+            product.quantity = newCart[i].quantity;
+            return product;
+          }
+        }
+      });
+      updateCart(detailedCart);
     };
 
-    cart();
-  }, []);
+    apiCart();
+  }, [products]);
+  console.log(cart);
+  const tableRows = cart.map((item) => {
+    return (
+      <tr>
+        <td>{item.title}</td>
+        <td>{item.price}</td>
+        <td>{item.quantity}</td>
+      </tr>
+    );
+  });
+  const totalPrice = cart.reduce((final, item) => {
+    final = item.price + final;
+    return final;
+  }, 0);
+
   return (
     <>
       <h1>Checkout Below</h1>
@@ -72,18 +100,15 @@ export default function Checkout({ cart, setCart }) {
         <table>
           <thead>
             <tr>
-              <th width="50%">Product</th>
+              <th>Product</th>
               <th>Price</th>
               <th>Qty</th>
-              <th>Total</th>
             </tr>
           </thead>
           <tbody>
+            {tableRows}
             <tr>
-              <td>shirt</td>
-              <td>200</td>
-              <td>2</td>
-              <td>400</td>
+              <th>Total</th> <tr> {totalPrice}</tr>
             </tr>
           </tbody>
         </table>
