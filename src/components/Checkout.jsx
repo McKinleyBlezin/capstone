@@ -6,6 +6,15 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function Checkout({ cart, setCart }) {
+  useEffect(() => {
+    const cart = async () => {
+      const response = await fetch("https://fakestoreapi.com/carts");
+      const result = await response.json();
+      setCart(result);
+    };
+
+    cart();
+  }, []);
   return (
     <>
       <h1>Checkout Below</h1>

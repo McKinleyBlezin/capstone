@@ -27,7 +27,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar cart={cart} />
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h1">#➊ 🅢🅣🅞🅟 & 🅢🅗🅞🅟</Typography>
