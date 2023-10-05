@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "@mui/material";
 
-export default function Signup(token) {
+export default function Signup() {
   const [signup, setSignup] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -24,10 +24,6 @@ export default function Signup(token) {
               street: "7835 new road",
               number: 3,
               zipcode: "12926-3874",
-              geolocation: {
-                lat: "-37.3159",
-                long: "81.1496",
-              },
             },
             phone: "1-570-236-7033",
           }),
@@ -41,6 +37,7 @@ export default function Signup(token) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(handleSubmit);
   };
 
   return (
@@ -49,7 +46,7 @@ export default function Signup(token) {
         ▼▼Welcome to 1 Stop & Shop! Down below once you SIGNUP you'll have
         exclusive access to our online products!▼▼
       </h2>
-      <form className="signup" onSubmit={handleSubmit}>
+      <form className="signup">
         <label htmlFor="username">Username:</label>
         <input
           type="text"
@@ -103,7 +100,7 @@ export default function Signup(token) {
         />
         <br />
       </form>
-      <button onClick={token} type="submit">
+      <button type="submit" value="Register" onClick={handleSubmit}>
         Submit
       </button>
     </>

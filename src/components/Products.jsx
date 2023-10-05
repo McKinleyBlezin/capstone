@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-export default function Products({ updateCart }) {
-  const [products, setProducts] = useState([]);
+export default function Products({ cart, updateCart, products, setProducts }) {
   const navigate = useNavigate();
   //Have a use Effect to gab all data for products from API
   useEffect(() => {
@@ -12,6 +11,7 @@ export default function Products({ updateCart }) {
         const response = await fetch("https://fakestoreapi.com/products");
         const result = await response.json();
         setProducts(result);
+        console.log(result);
       } catch (error) {
         console.log(error);
       }
@@ -19,12 +19,15 @@ export default function Products({ updateCart }) {
 
     //Calling the products to show
     fetchProducts();
-  }, []);
+  }, [cart]);
 
-  function addToCart(id) {
-    const item = products.find((product) => product.id === id);
+  function addToCart(product) {
+    const item = {
+      ...product,
+      quantity: 1,
+    };
 
-    updateCart((prevCart) => [...prevCart, item]);
+    updateCart([...cart, item]);
   }
 
   return (
@@ -50,7 +53,7 @@ export default function Products({ updateCart }) {
             <button
               className="add-to-cart"
               type="button"
-              onClick={() => addToCart(product.id)}
+              onClick={() => addToCart(product)}
             >
               Add To Cart
             </button>

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function Login({ token, setToken }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   useEffect(() => {
     const storeToken = localStorage.getItem("token");
 
@@ -32,6 +33,8 @@ export function Login({ token, setToken }) {
         setToken(result.token);
 
         console.log(response);
+
+        navigate("/Products");
       } else {
         // Handle login errors here
         console.log("Login failed:", result.error);
