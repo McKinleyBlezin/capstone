@@ -40,6 +40,7 @@ main{
 
 .checkout-card1{
   text-align: center;
+  text-wrap: balance;
   padding: 15px;
   border: 2px solid silver;
   font-size: medium;
@@ -49,6 +50,7 @@ main{
 }
 .checkout-card2{
   text-align: center;
+  text-wrap: balance;
   padding: 15px;
   border: 2px solid silver;
   font-size: medium;
@@ -70,6 +72,7 @@ main{
 
 .card >ul{
   text-align: center;
+  text-wrap: balance;
   padding: 15px;
   border: 2px solid silver;
   font-size: medium;
@@ -79,6 +82,7 @@ main{
  }
 
  .card{
+  text-wrap: balance;
   padding: 0;
   margin: 10px;
   display: grid;
@@ -111,4 +115,9 @@ main{
 
 .nav li:hover {
   background-color: rgb(167, 178, 208);
+}
+
+.SuccessMessage{
+  font-size: larger;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }

@@ -55,7 +55,10 @@ function App() {
           <Route
             path="/OrderPlaced"
             element={
-              "Your Order has been Placed! A confirmation email has been sent. Please allow to 2-3 bussiness days for shipping!"
+              <div className="SuccessMessage">
+                "Your 🅞🅡🅓🅔🅡 has been 🅟🅛🅐🅒🅔🅓! A confirmation email has been sent.
+                Please allow to ➋-➌ bussiness days for shipping!"
+              </div>
             }
           />
           <Route
