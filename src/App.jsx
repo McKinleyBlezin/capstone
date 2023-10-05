@@ -6,6 +6,7 @@ import { Login } from "./components/Login";
 import Signup from "./components/Signup";
 import Navbar from "./components/Navbar";
 import Checkout from "./components/Checkout";
+import OrderPlaced from "./components/OrderPlaced";
 import "./index.css";
 import {
   Typography,
@@ -51,6 +52,12 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={""} />
+          <Route
+            path="/OrderPlaced"
+            element={
+              "Your Order has been Placed! A confirmation email has been sent. Please allow to 2-3 bussiness days for shipping!"
+            }
+          />
           <Route
             path="/Login"
             element={<Login token={token} setToken={setToken} />}

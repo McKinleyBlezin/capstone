@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 export default function Checkout({ cart, updateCart, products }) {
   const [isOrderPlaced, setIsOrderPlaced] = useState(false);
   const message = "Your Order has been placed!";
+  const navigate = useNavigate();
 
   useEffect(() => {
     const apiCart = async () => {
@@ -47,7 +48,7 @@ export default function Checkout({ cart, updateCart, products }) {
 
   return (
     <>
-      <h1>Checkout Below</h1>
+      <h1>Checkout Below:</h1>
 
       <div className="checkout-card1">
         <div>
@@ -143,7 +144,8 @@ export default function Checkout({ cart, updateCart, products }) {
               type="button"
               onClick={() => {
                 setIsOrderPlaced(true);
-                disabled = { isOrderPlaced };
+                // disabled = { isOrderPlaced };
+                navigate("/OrderPlaced");
               }}
             >
               Place Order
@@ -151,7 +153,7 @@ export default function Checkout({ cart, updateCart, products }) {
           </div>
         </table>
       </div>
-      {isOrderPlaced && <p>{message}</p>}
+      {/* {isOrderPlaced && <p>{message}</p>} */}
     </>
   );
 }

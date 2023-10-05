@@ -37,6 +37,7 @@ export default function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(handleSubmit);
   };
 
   return (
@@ -45,7 +46,7 @@ export default function Signup() {
         ▼▼Welcome to 1 Stop & Shop! Down below once you SIGNUP you'll have
         exclusive access to our online products!▼▼
       </h2>
-      <form className="signup" onSubmit={handleSubmit}>
+      <form className="signup">
         <label htmlFor="username">Username:</label>
         <input
           type="text"
@@ -99,7 +100,9 @@ export default function Signup() {
         />
         <br />
       </form>
-      <button type="submit">Submit</button>
+      <button type="submit" value="Register" onClick={handleSubmit}>
+        Submit
+      </button>
     </>
   );
 }
