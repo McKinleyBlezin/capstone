@@ -5,21 +5,21 @@ import { useNavigate } from "react-router-dom";
 export default function Products({ cart, updateCart, products, setProducts }) {
   const navigate = useNavigate();
   //Have a use Effect to gab all data for products from API
-  // useEffect(() => {
-  //   async function fetchProducts() {
-  //     try {
-  //       const response = await fetch("https://fakestoreapi.com/products");
-  //       const result = await response.json();
-  //       setProducts(result);
-  //       console.log(result);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const response = await fetch("https://fakestoreapi.com/products");
+        const result = await response.json();
+        setProducts(result);
+        console.log(result);
+      } catch (error) {
+        console.log(error);
+      }
+    }
 
-  //   //Calling the products to show
-  //   fetchProducts();
-  // }, [cart]);
+    //Calling the products to show
+    fetchProducts();
+  }, [cart]);
 
   function addToCart(product) {
     const item = {

@@ -8,11 +8,13 @@ main{
 }
 
 .singlecard{
-  display: grid;
-  justify-items: center;
   text-align: center;
-  padding: 20%;
-  margin-left: 17%;
+  padding: 15px;
+  border: 2px solid silver;
+  font-size: medium;
+  background-color: rgba(167, 208, 207, 0.632);
+  border-radius: 5%;
+  
 }
 
 .login{

@@ -6,6 +6,9 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function Checkout({ cart, updateCart, products }) {
+  const [isOrderPlaced, setIsOrderPlaced] = useState(false);
+  const message = "Your Order has been placed!";
+
   useEffect(() => {
     const apiCart = async () => {
       const response = await fetch("https://fakestoreapi.com/carts");
@@ -29,15 +32,14 @@ export default function Checkout({ cart, updateCart, products }) {
     apiCart();
   }, [products]);
   console.log(cart);
-  const tableRows = cart.map((item) => {
-    return (
-      <tr>
-        <td>{item.title}</td>
-        <td>{item.price}</td>
-        <td>{item.quantity}</td>
-      </tr>
-    );
-  });
+
+  const tableRows = cart.map((item) => (
+    <tr key={item.id}>
+      <td>{item.title}</td>
+      <td>{item.price}</td>
+    </tr>
+  ));
+
   const totalPrice = cart.reduce((final, item) => {
     final = item.price + final;
     return final;
@@ -49,46 +51,71 @@ export default function Checkout({ cart, updateCart, products }) {
 
       <div className="checkout-card1">
         <div>
-          <div className="col-mid-3">
+          <div>
             <div>
-              <label htmlFor="">First Name: </label>
-              <input type="text" name="firstname" className="form-control" />
+              <label>First Name: </label>
+              <input
+                type="text"
+                name="firstname"
+                className="form-control"
+                required
+              />
             </div>
             <div>
-              <label htmlFor="">Last Name: </label>
-              <input type="text" name="lastname" className="form-control" />
+              <label>Last Name: </label>
+              <input
+                type="text"
+                name="lastname"
+                className="form-control"
+                required
+              />
             </div>
             <div>
-              <label htmlFor=""> Phone Number: </label>
-              <input type="text" name="phone" className="form-control" />
+              <label> Phone Number: </label>
+              <input
+                type="text"
+                name="phone"
+                className="form-control"
+                required
+              />
             </div>
             <div>
-              <label htmlFor="">Email Address: </label>
-              <input type="text" name="email" className="form-control" />
+              <label>Email Address: </label>
+              <input
+                type="text"
+                name="email"
+                className="form-control"
+                required
+              />
             </div>
             <div>
-              <label htmlFor="">Full Address </label>
-              <textarea rows="3" className="form-control"></textarea>
+              <label>Full Address </label>
+              <textarea rows="3" className="form-control" required></textarea>
               <div>
-                <label htmlFor="">City </label>
-                <input type="text" name="city" className="form-control" />
+                <label>City </label>
+                <input
+                  type="text"
+                  name="city"
+                  className="form-control"
+                  required
+                />
                 <div>
-                  <label htmlFor="">State </label>
-                  <input type="text" name="state" className="form-control" />
+                  <label>State </label>
+                  <input
+                    type="text"
+                    name="state"
+                    className="form-control"
+                    required
+                  />
                   <div>
-                    <label htmlFor="">Zip Code </label>
+                    <label>Zip Code </label>
                     <input
                       type="text"
                       name="zipcode"
                       className="form-control"
+                      required
                     />
-                    <div className="form-group mb-3">
-                      <div htmlFor="">
-                        <button type="button" className="btn btn-primary">
-                          Place Order
-                        </button>
-                      </div>
-                    </div>
+                    <div></div>
                   </div>
                 </div>
               </div>
@@ -102,17 +129,29 @@ export default function Checkout({ cart, updateCart, products }) {
             <tr>
               <th>Product</th>
               <th>Price</th>
-              <th>Qty</th>
             </tr>
           </thead>
           <tbody>
             {tableRows}
             <tr>
-              <th>Total</th> <tr> {totalPrice}</tr>
+              <th>Total</th> <tr>{totalPrice}</tr>
             </tr>
           </tbody>
+
+          <div htmlFor="">
+            <button
+              type="button"
+              onClick={() => {
+                setIsOrderPlaced(true);
+                disabled = { isOrderPlaced };
+              }}
+            >
+              Place Order
+            </button>
+          </div>
         </table>
       </div>
+      {isOrderPlaced && <p>{message}</p>}
     </>
   );
 }

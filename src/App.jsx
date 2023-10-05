@@ -68,7 +68,7 @@ function App() {
           />
           <Route
             path="/Products/:id"
-            element={<SingleProduct updateCart={setCart} />}
+            element={<SingleProduct cart={cart} updateCart={setCart} />}
           />
           <Route path="/Signup" element={<Signup token={token} />} />
           <Route
