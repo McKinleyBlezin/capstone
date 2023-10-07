@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Card } from "@mui/material";
 import { useParams } from "react-router-dom";
 
-export default function SingleProduct(cart, updateCart) {
+export default function SingleProduct({
+  cart,
+  updateCart,
+  products,
+  setProducts,
+}) {
   const [singleProduct, setSingleProduct] = useState(null);
   const { id } = useParams();
 
@@ -29,7 +34,7 @@ export default function SingleProduct(cart, updateCart) {
 
     updateCart([...cart, item]);
   }
-
+  console.log({ cart });
   return (
     <>
       {singleProduct && (
@@ -47,7 +52,7 @@ export default function SingleProduct(cart, updateCart) {
           <button
             className="add-to-cart"
             type="button"
-            onClick={() => addToCart(SingleProduct)}
+            onClick={() => addToCart(singleProduct)}
           >
             Add To Cart
           </button>
