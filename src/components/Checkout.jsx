@@ -134,6 +134,9 @@ export default function Checkout({ cart, updateCart, products }) {
           </thead>
           <tbody>
             {tableRows}
+            <button type="delete" onClick={() => {}}>
+              Delete
+            </button>
             <tr>
               <th>Total</th> <tr>{totalPrice}</tr>
             </tr>
